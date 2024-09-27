@@ -28,7 +28,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
 
-    'main'
+    'main',
+    'telegram_bot'
 ]
 
 MIDDLEWARE = [
