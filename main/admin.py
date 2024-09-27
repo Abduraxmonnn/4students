@@ -1,14 +1,6 @@
 from django.contrib import admin
 
-from main.models import User, Faculty, Subject, Answer, FeedBack
-
-
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ['user_id', 'username', 'created_on', 'updated_on']
-    list_display_links = ['user_id', 'username']
-    search_fields = ['user_id', 'username']
-
+from main.models import Faculty, Subject, Answer, FeedBack
 
 @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):

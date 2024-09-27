@@ -1,25 +1,6 @@
 from django.db import models
 
-
-class User(models.Model):
-    user_id = models.IntegerField()
-    username = models.CharField(max_length=100)
-    first_name = models.CharField(max_length=100)
-    created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        verbose_name = 'Telegram User'
-        verbose_name_plural = 'Telegram Users'
-
-    def __str__(self):
-        return self.username
-
-    def get_user_id(self):
-        return self.user_id
-
-    def get_username(self):
-        return self.username
+from telegram_bot.models import TGUser
 
 
 class Faculty(models.Model):
@@ -81,7 +62,7 @@ class Answer(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, null=True)
     file_name = models.CharField(max_length=100)
     content_type = models.CharField(max_length=100)
-    by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    by = models.ForeignKey(TGUser, on_delete=models.SET_NULL, null=True)
     is_anonymous = models.BooleanField(default=False)
 
     year = models.IntegerField(null=True, blank=True)
@@ -111,7 +92,7 @@ class Answer(models.Model):
 class FeedBack(models.Model):
     subject = models.CharField(max_length=150)
     message = models.TextField()
-    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    owner = models.ForeignKey(TGUser, on_delete=models.SET_NULL, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
