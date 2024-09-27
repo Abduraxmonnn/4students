@@ -36,4 +36,5 @@ async def main():
 
 
 async def start_bot():
+    print('Bot started...')
     await main()
