@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, types
 
 # Project
-from telegram_bot.handlers import start_handler
+from telegram_bot.handlers import start_handler, upload_file_handler
 
 load_dotenv()
 
@@ -22,7 +22,10 @@ async def main():
     bot = Bot(token=TOKEN)
     dp = Dispatcher()
 
-    dp.include_router(start_handler.router)
+    dp.include_routers(
+        start_handler.router,
+        upload_file_handler.router
+    )
 
     bot_commands = [
         types.BotCommand(command="/start", description="Start bot for subscribe"),

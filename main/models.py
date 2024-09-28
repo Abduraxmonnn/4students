@@ -3,6 +3,11 @@ from django.db import models
 from telegram_bot.models import TGUser
 
 
+def content_file_name(instance, filename):
+    return '/'.join(['answers', instance.subject.faculty.direction, instance.subject.faculty.short_name,
+                     f'SEMESTER_{instance.semester}', filename])
+
+
 class Faculty(models.Model):
     ENGINEERING = 'ENGINEERING'
     BUSINESS_FINANCE = 'BUSINESS_FINANCE'
@@ -60,8 +65,9 @@ class Subject(models.Model):
 
 class Answer(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, null=True)
+    file = models.FileField(upload_to=content_file_name)
     file_name = models.CharField(max_length=100)
-    content_type = models.CharField(max_length=100)
+    file_type = models.CharField(max_length=100)
     by = models.ForeignKey(TGUser, on_delete=models.SET_NULL, null=True)
     is_anonymous = models.BooleanField(default=False)
 
@@ -77,7 +83,7 @@ class Answer(models.Model):
     class Meta:
         verbose_name = 'Answer File'
         verbose_name_plural = 'Answer Files'
-        unique_together = ('file_name', 'content_type', 'by', 'semester')
+        unique_together = ('file_name', 'file_type', 'by', 'semester')
 
     def __str__(self):
         return self.file_name
