@@ -62,7 +62,7 @@ async def create_answer(
         pages: int,
         answers: int
 ):
-    direction_faculty = await get_faculty_name(short_name=short_name, obj=Faculty)
+    direction_faculty = await get_faculty_name(short_name=short_name, faculty=faculty)
 
     faculty_obj, created_faculty = await get_or_create_faculty(
         direction=direction_faculty['direction'],

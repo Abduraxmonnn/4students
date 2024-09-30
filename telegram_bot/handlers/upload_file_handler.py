@@ -15,6 +15,7 @@ from telegram_bot.buttons import reply as btn
 from telegram_bot.orm.answer import create_answer
 from telegram_bot.states.upload_file_state import UploadFileStates
 from telegram_bot.messages import ChatMessages, ButtonMessages
+from main.faculties_data import check_faculty_correction
 
 chat_message = ChatMessages()
 btn_message = ButtonMessages()
@@ -27,7 +28,7 @@ async def get_file(message: Message, state: FSMContext):
     if message.document:
         await state.update_data(file=message.document)
         await state.set_state(UploadFileStates.faculty)
-        await message.answer(chat_message.ask_faculty_message())
+        await message.answer(chat_message.ask_faculty_message(), reply_markup=btn.faculties_btn)
     else:
         await message.answer("Please upload a valid document.")
 
@@ -41,7 +42,9 @@ async def get_faculty(message: Message, state: FSMContext):
 
 @router.message(UploadFileStates.short_name)
 async def get_faculty(message: Message, state: FSMContext):
-    if len(message.text) == 3:
+    data = await state.get_data()
+
+    if await check_faculty_correction(short_name=message.text.upper(), faculty=data['faculty']):
         await state.update_data(short_name=message.text)
         await state.set_state(UploadFileStates.subject)
         await message.answer(chat_message.ask_subject_message())

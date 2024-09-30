@@ -1,22 +1,27 @@
-async def get_faculty_name(short_name: str, obj) -> dict:
-    print(short_name)
-    data = {
-        'ACC': {
-            'direction': obj.BUSINESS_FINANCE,
-            'faculty': 'ACCOUNTING'
-        },
-        'AUD': {
-            'direction': obj.BUSINESS_FINANCE,
-            'faculty': 'ARCHITECTURE AND URBAN DESIGN'
-        },
-        'BAN': {
-            'direction': 'BUSINESS_FINANCE',
-        },
-        'ISE': {
-            'direction': obj.ENGINEERING,
-            'faculty': 'INFORMATION SYSTEM ENGINEERING'
+# Project
+from asgiref.sync import sync_to_async, async_to_sync
+
+from main.models import Faculty
+
+
+@sync_to_async
+def get_faculty_name(short_name: str, faculty: str) -> dict:
+    result = {}
+
+    for item in Faculty.objects.filter(name=faculty, short_name=short_name):
+        result = {
+            "direction": item.direction,
+            "faculty": item.name,
         }
-    }
 
-    return data[short_name]
+    return result
 
+
+@sync_to_async
+def check_faculty_correction(short_name: str, faculty: str) -> bool:
+    check_faculty = Faculty.objects.filter(name=faculty, short_name=short_name)
+
+    if check_faculty.exists():
+        return True
+
+    return False
