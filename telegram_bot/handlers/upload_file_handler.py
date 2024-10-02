@@ -37,7 +37,7 @@ async def get_file(message: Message, state: FSMContext):
 async def get_faculty(message: Message, state: FSMContext):
     await state.update_data(faculty=message.text)
     await state.set_state(UploadFileStates.short_name)
-    await message.answer(chat_message.ask_short_name_message())
+    await message.answer(chat_message.ask_short_name_message(), reply_markup=btn.faculties_shorts_btn)
 
 
 @router.message(UploadFileStates.short_name)

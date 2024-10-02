@@ -20,7 +20,21 @@ faculty_names = [item.name for item in Faculty.objects.all()]
 # Create the keyboard with buttons for each faculty name
 faculties_btn = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton(text=name)] for name in faculty_names
+        [KeyboardButton(text=faculty_names[i + j]) for j in range(3) if i + j < len(faculty_names)]
+        for i in range(0, len(faculty_names), 3)
+    ],
+    resize_keyboard=True,
+    one_time_keyboard=True
+)
+
+# Fetch all faculty names
+faculty_short_names = [item.short_name for item in Faculty.objects.all()]
+
+# Create the keyboard with buttons for each faculty name
+faculties_shorts_btn = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text=faculty_short_names[i + j]) for j in range(3) if i + j < len(faculty_short_names)]
+        for i in range(0, len(faculty_short_names), 3)
     ],
     resize_keyboard=True,
     one_time_keyboard=True

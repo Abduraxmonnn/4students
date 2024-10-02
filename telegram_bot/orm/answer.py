@@ -1,6 +1,7 @@
 # Python
 import os
 from asgiref.sync import sync_to_async
+from django.core.files.base import ContentFile
 
 from main.faculties_data import get_faculty_name
 from main.models import Faculty, Subject, Answer
@@ -51,7 +52,7 @@ def create_answer_in_db(subject, file, file_name, file_type, user, is_anonymous,
 
 
 async def create_answer(
-        file,  # This should be a ContentFile
+        file: ContentFile,  # This should be a ContentFile
         faculty: str,
         short_name: str,
         subject: str,
@@ -90,7 +91,7 @@ async def create_answer(
         file_name=file_name,
         file_type=file_type,
         user=user_obj,
-        is_anonymous=is_anonymous,
+        is_anonymous=not is_anonymous,
         year=year,
         semester=semester,
         pages=pages,

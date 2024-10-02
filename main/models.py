@@ -32,6 +32,7 @@ class Faculty(models.Model):
     class Meta:
         verbose_name = 'Faculty'
         verbose_name_plural = 'Faculties'
+        unique_together = ('name', 'short_name')
 
     def __str__(self):
         return self.name
