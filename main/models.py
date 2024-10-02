@@ -33,6 +33,7 @@ class Faculty(models.Model):
         verbose_name = 'Faculty'
         verbose_name_plural = 'Faculties'
         unique_together = ('name', 'short_name')
+        ordering = ('-created_on',)
 
     def __str__(self):
         return self.name
@@ -53,6 +54,7 @@ class Subject(models.Model):
     class Meta:
         verbose_name = 'Subject'
         verbose_name_plural = 'Subjects'
+        ordering = ('-created_on',)
 
     def __str__(self):
         return self.name
@@ -85,6 +87,7 @@ class Answer(models.Model):
         verbose_name = 'Answer File'
         verbose_name_plural = 'Answer Files'
         unique_together = ('file_name', 'file_type', 'by', 'semester')
+        ordering = ('-created_on',)
 
     def __str__(self):
         return self.file_name
@@ -106,6 +109,7 @@ class FeedBack(models.Model):
     class Meta:
         verbose_name = 'Feedback'
         verbose_name_plural = 'Feedbacks'
+        ordering = ('-created_on',)
 
     def __str__(self):
         return f'{self.subject}: {self.owner}'

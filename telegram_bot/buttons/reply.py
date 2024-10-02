@@ -14,8 +14,10 @@ is_anonymous_btn = ReplyKeyboardMarkup(keyboard=[
     ],
 ], resize_keyboard=True, one_time_keyboard=True)
 
+get_faculty_data = Faculty.objects.all().order_by('name')
+
 # Fetch all faculty names
-faculty_names = [item.name for item in Faculty.objects.all()]
+faculty_names = [item.name for item in get_faculty_data]
 
 # Create the keyboard with buttons for each faculty name
 faculties_btn = ReplyKeyboardMarkup(
@@ -27,10 +29,10 @@ faculties_btn = ReplyKeyboardMarkup(
     one_time_keyboard=True
 )
 
-# Fetch all faculty names
-faculty_short_names = [item.short_name for item in Faculty.objects.all()]
+# Fetch all faculty short names
+faculty_short_names = [item.short_name for item in get_faculty_data]
 
-# Create the keyboard with buttons for each faculty name
+# Create the keyboard with buttons for each faculty short name
 faculties_shorts_btn = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text=faculty_short_names[i + j]) for j in range(3) if i + j < len(faculty_short_names)]
