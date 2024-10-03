@@ -45,25 +45,25 @@ class ChatMessages:
 
     def ask_subject_message(self) -> str:
         self.message = {
-            'uz': 'Fani kiriting',
-            'ru': 'Введите предмета',
-            'en': 'Enter the subject'
+            'uz': 'Fan nomini kiriting',
+            'ru': 'Введите название предмета',
+            'en': 'Enter the subject name'
         }
         return self.message[self.language]
 
     def ask_year_message(self) -> str:
         self.message = {
-            'uz': 'Fani o\'qitilgan yilni kiriting',
-            'ru': 'Введите год преподавания предмета',
-            'en': 'Enter the year the subject was studied'
+            'uz': 'Fani o\'qitilgan yilni kiriting. masalan: 2020, 2023, 2024',
+            'ru': 'Введите год преподавания предмета. например: 2020, 2023, 2024',
+            'en': 'Enter the year the subject was studied. for example: 2020, 2023, 2024'
         }
         return self.message[self.language]
 
     def ask_semester_message(self) -> str:
         self.message = {
-            'uz': 'Fani o\'qitilgan semester kiriting',
-            'ru': 'Введите семестр преподавания предмета',
-            'en': 'Enter the semester the subject was studied'
+            'uz': 'Fani o\'qitilgan semester kiriting. masalan: 1, 2, 3, 4',
+            'ru': 'Введите семестр преподавания предмета. например: 1, 2, 3, 4',
+            'en': 'Enter the semester the subject was studied. for example: 1, 2, 3, 4'
         }
         return self.message[self.language]
 
@@ -127,13 +127,13 @@ class ChatMessages:
         self.message = {
             'uz': """Biz har doim botimizni yaxshilash va uni sizlar uchun foydaliroq qilishga intilamiz. Iltimos, o'z takliflaringiz, fikrlaringiz yoki yaxshilash bo'yicha g'oyalaringizni qoldiring.
 
-Sizning fikringiz biz uchun juda muhim, va biz albatta uni inobatga olamiz. Hissa qo'shganingiz uchun rahmat!""",
+Sizning fikringiz biz uchun juda muhim, va biz albatta uni inobatga olamiz. Hissa qo'shganingiz uchun rahmat! 🙏""",
             'ru': """Мы всегда стремимся улучшить наш бот и сделать его более полезным для вас. Пожалуйста, оставьте свои предложения, замечания или идеи по улучшению.
 
-Ваше мнение очень важно для нас, и мы обязательно его рассмотрим. Спасибо за ваш вклад!""",
+Ваше мнение очень важно для нас, и мы обязательно его рассмотрим. Спасибо за ваш вклад! 🙏""",
             'en': """We always strive to improve our bot and make it more useful for you. Please leave your suggestions, comments, or ideas for improvement.
 
-Your feedback is very important to us, and we will definitely take it into account. Thank you for your contribution!"""
+Your feedback is very important to us, and we will definitely take it into account. Thank you for your contribution! 🙏"""
         }
         return self.message[self.language]
 
@@ -141,48 +141,48 @@ Your feedback is very important to us, and we will definitely take it into accou
         self.message = {
             'uz': """Assalomu Aleykom, hurmatli talaba va foydalanuvchilar. Bu bot KIUT (Kimyo International University in Tashkent) da tahsil oluvchi talabar qayta topshirish (retake) imtihonlariga yengilik yaratish maqsadida ish yuritadi.
 
-Bot dan foydalanish tarting:
+📌 Bot dan foydalanish tarting:
 
-1. Javoblarga ega fayl yuklaysiz.
-2. Bot sizdan so’ragan qo’shimcha ma’lumotlarga jovob berasiz.
-3. Bot javobni qabul qilgach gruppaga yuklash bosqichga o’tadi.
+1. Javoblarga ega fayl yuklaysiz 📁.
+2. Bot sizdan so’ragan qo’shimcha ma’lumotlarga jovob berasiz ✍️.
+3. Bot javobni qabul qilgach gruppaga yuklash bosqichga o’tadi ✅.
 
-Bot rivojlanishga o’z hisnagizni qo’shing:
+💡 Bot rivojlanishga o’z hisnagizni qo’shing:
 
 1. /feedback buyruq foydalanib o’z fikiringizni qoldirib. Admin albatta o’qib chiqadi.
 
 Qo’shimcha sovolaringiz bolsa gruppa qolganlardan so’rab olshingiz mumkin yoki Admin kirib jovob berishini kuting.
 
-Etiboringiz uchun rahmat.""",
+Etiboringiz uchun rahmat 🙏.""",
             'ru': """Ассалому Алейкум, уважаемые студенты и пользователи. Этот бот работает с целью создания нововведений для студентов, сдающих пересдачу (retake) экзаменов в KIUT (Международный университет Кимё в Ташкенте).
 
-Правила использования бота:
+📌 Правила использования бота:
 
-1. Вы загружаете файл с ответами.
-2. Вы отвечаете на дополнительные вопросы, которые задаст бот.
-3. После того, как бот примет ответ, он перейдет к этапу загрузки в группу.
+1. Вы загружаете файл с ответами 📁.
+2. Вы отвечаете на дополнительные вопросы, которые задаст бот ✍️.
+3. После того, как бот примет ответ, он перейдет к этапу загрузки в группу ✅.
 
-Ваши идеи по улучшению бота:
+💡 Ваши идеи по улучшению бота:
 
 1. Оставьте свое мнение, используя команду /feedback. Администратор обязательно прочитает его.
 
 Если у вас есть дополнительные вопросы, вы можете спросить других в группе или дождаться ответа от администратора.
 
-Спасибо за ваше внимание.""",
+Спасибо за ваше внимание 🙏.""",
             'en': """Hello, dear students and users. This bot operates with the aim of innovating the retake exams for students at KIUT (Kimyo International University in Tashkent).
 
-How to use the bot:
+📌 How to use the bot:
 
-1. You upload a file with the answers.
-2. You respond to the additional information the bot asks for.
-3. Once the bot accepts your answer, it moves on to the upload stage for the group.
+1. You upload a file with the answers 📁.
+2. You respond to the additional information the bot asks for ✍️.
+3. Once the bot accepts your answer, it moves on to the upload stage for the group ✅.
 
-Contribute to the bot's development:
+💡 Contribute to the bot's development:
 
 1. Use the /feedback command to leave your thoughts. The admin will definitely read it.
 
 If you have additional questions, you can ask others in the group or wait for the admin to respond.
 
-Thank you for your attention."""
+Thank you for your attention 🙏."""
         }
         return self.message[self.language]

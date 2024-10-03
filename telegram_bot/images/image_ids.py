@@ -1,1 +1,3 @@
 hello_banner = 'AgACAgIAAxkBAAIC42b-pts3qjRFv2s12_D0c3vZxXyqAAJz7TEbo8j5S8vNo8UtQt5sAQADAgADeQADNgQ'
+help_banner = 'AgACAgIAAxkBAAIC6Gb-qjsY3Lu2AAHJoqYbN6DMcXXDFwACdeMxG1lQ8Uto3oY8IhmHqgEAAwIAA3kAAzYE'
+cropped_help_banner = 'AgACAgIAAxkBAAIC6mb-qvoLNimfnTtymjZBqCJQ_I-VAAKy5zEbusL5S9ryEzeBAWjiAQADAgADeAADNgQ'
