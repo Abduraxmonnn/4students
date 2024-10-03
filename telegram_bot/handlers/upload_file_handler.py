@@ -95,7 +95,7 @@ async def get_anonymous(message: Message, state: FSMContext):
     if response.status_code == 200:
         file_name = os.path.basename(file_url)
 
-        content_file = ContentFile(response.content, name=file_name)
+        content_file = ContentFile(content=response.content, name=file_name)
 
         await create_answer(
             faculty=str(data['faculty']).upper(),
