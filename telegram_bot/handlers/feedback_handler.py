@@ -24,7 +24,7 @@ async def feedback_command(message: Message, state: FSMContext):
     ]
     for i in msg:
         await message.answer(i)
-        await asyncio.sleep(1)
+        await asyncio.sleep(1/2)
 
 
 @router.message(FeedbackStates.subject)
