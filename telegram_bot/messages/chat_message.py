@@ -5,17 +5,17 @@ class ChatMessages:
 
     def hello_message(self, username: str) -> str:
         self.message = {
-            'uz': f'{username} Xush kelibsiz 😊!\n\nFayllarni yuborish ketma-ketligi o\'rganib chiqish uchun /help',
-            'ru': f'{username} Добро пожаловать 😊!\n\nУзнать правила отправки файлов /help',
-            'en': f'{username} Welcome 😊!\n\nLearn the rules for sending files /help'
+            'uz': f'{username} Xush kelibsiz 😊!\n\nIshni boshlashdan oldin, iltimos, fayl yuborish qoidalari bilan tanishing /help',
+            'ru': f'{username} Добро пожаловать 😊!\n\nПеред началом работы, пожалуйста, ознакомьтесь с правилами отправки файлов /help',
+            'en': f'{username} Welcome 😊!\n\nBefore starting work, please familiarize yourself with the file submission guidelines /help'
         }
         return self.message[self.language]
 
     def ask_upload_file_message(self) -> str:
         self.message = {
-            'uz': 'Iltimos Javoblarga ega faylni yuklang.',
-            'ru': 'Загрузите, пожалуйста, файл с ответами.',
-            'en': 'Please upload the file with answers.'
+            'uz': 'Javoblarga ega faylni yuklashingiz mumkin.',
+            'ru': 'Можете загрузите, файл с ответами.',
+            'en': 'Upload the file with answers.'
         }
         return self.message[self.language]
 
@@ -154,7 +154,7 @@ Bot rivojlanishga o’z hisnagizni qo’shing:
 Qo’shimcha sovolaringiz bolsa gruppa qolganlardan so’rab olshingiz mumkin yoki Admin kirib jovob berishini kuting.
 
 Etiboringiz uchun rahmat.""",
-            'ru': """Ассалому Алейкум, уважаемые студенты и пользователи. Этот бот работает с целью создания нововведений для студентов, сдающих пересдачу (ретейк) экзаменов в KIUT (Международный университет химии в Ташкенте).
+            'ru': """Ассалому Алейкум, уважаемые студенты и пользователи. Этот бот работает с целью создания нововведений для студентов, сдающих пересдачу (retake) экзаменов в KIUT (Международный университет Кимё в Ташкенте).
 
 Правила использования бота:
 
