@@ -13,7 +13,7 @@ from aiogram.fsm.context import FSMContext
 # Project
 from telegram_bot.buttons import reply as btn
 from telegram_bot.orm.answer import create_answer
-from telegram_bot.states.upload_file_state import UploadFileStates
+from telegram_bot.states.base_state import UploadFileStates
 from telegram_bot.messages import ChatMessages, ButtonMessages
 from main.faculties_data import check_faculty_correction
 

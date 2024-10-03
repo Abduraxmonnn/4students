@@ -13,3 +13,8 @@ class UploadFileStates(StatesGroup):
     answer_count = State()
     is_anonymous = State()
     by = State()
+
+
+class FeedbackStates(StatesGroup):
+    subject = State()
+    text = State()
