@@ -77,8 +77,9 @@ class Answer(models.Model):
     year = models.IntegerField(null=True, blank=True)
     semester = models.IntegerField()
 
-    pages = models.IntegerField(null=True, blank=True)
-    answers = models.IntegerField(null=True, blank=True)
+    is_public = models.BooleanField(default=True)
+    is_old = models.BooleanField(default=False)
+    is_fake = models.BooleanField(default=False)
 
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
