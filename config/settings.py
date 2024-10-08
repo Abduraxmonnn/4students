@@ -65,16 +65,34 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DATABASE_NAME', '4students'),
-        'USER': os.environ.get('DATABASE_USER', '4students_user'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', '4students_password'),
-        'HOST': os.environ.get('DATABASE_HOST', '127.0.0.1'),
-        'PORT': os.environ.get('DATABASE_PORT', '5432'),
+DB_SQLITE = "sqlite"
+DB_POSTGRESQL = "postgresql"
+DB_POSTGRESQL_DOCKER = "postgresql_docker"
+
+DATABASES_ALL = {
+    DB_SQLITE: {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    },
+    DB_POSTGRESQL: {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('POSTGRES_NAME', '4students'),
+        'USER': os.environ.get('POSTGRES_USER', '4students_user'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', '4students_password'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
+        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+    },
+    DB_POSTGRESQL_DOCKER: {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('POSTGRES_NAME_DOCKER', 'tcb_db_prod'),
+        'USER': os.environ.get('POSTGRES_USER_DOCKER', 'tcb_user_prod'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD_DOCKER', 'tcb_12345_prod'),
+        'HOST': os.environ.get('POSTGRES_HOST_DOCKER', 'db'),
+        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
+
+DATABASES = {"default": DATABASES_ALL[DB_POSTGRESQL]}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
